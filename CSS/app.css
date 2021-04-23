@@ -1,0 +1,11 @@
+@import url("./InputWrapper.css");
+@import url(./RegisterForm.css);
+@import url(./SignIn/SignForm.css);
+@import url(./SignIn/SignInput.css);
+*{
+    font-family: 'PT Sans', sans-serif;
+}
+#app{
+    display: flex;
+    justify-content: center;
+}

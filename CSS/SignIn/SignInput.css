@@ -1,0 +1,12 @@
+.sign-input .input-fill{
+    width: 98.5%;
+    height: 30px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    outline: none;
+    margin-top: 10px;
+
+}
+.sign-input .write-error{
+    color: red;
+}

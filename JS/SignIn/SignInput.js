@@ -1,17 +1,17 @@
 const $template = document.createElement('template');
 $template.innerHTML = `
-    <div class="input-wrapper">
-        <input type="text" class="input-main">
-        <div class="input-error"></div>
+    <div class="sign-input">
+        <input type="text" class="input-fill">
+        <div class="write-error"></div>
     </div>
 `;
 
-export default class InputWrapper extends HTMLElement {
+export default class SignInput extends HTMLElement {
     constructor() {
         super();
         this.appendChild($template.content.cloneNode(true));
-        this.$main = this.querySelector(".input-main");
-        this.$error = this.querySelector(".input-error");
+        this.$main = this.querySelector(".input-fill");
+        this.$error = this.querySelector(".write-error");
     }
     static get observedAttributes() {
         return ['placeholder', 'error', 'type'];
@@ -40,4 +40,4 @@ export default class InputWrapper extends HTMLElement {
         return this.$main.value;
     }
 }
-window.customElements.define("input-wrapper", InputWrapper);
+window.customElements.define("sign-input", SignInput);
