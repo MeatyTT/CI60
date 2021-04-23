@@ -13,15 +13,14 @@ export default class SignForm extends HTMLElement {
     constructor() {
         super();
         this.appendChild($template.content.cloneNode(true));
-        this.$registerForm = this.querySelector('.sign-form');
+        this.$signForm = this.querySelector('.sign-form');
         this.$name = this.querySelector('.name');
         this.$email = this.querySelector('.email');
         this.$password = this.querySelector('.password');
     }
     connectedCallback() {
-        this.$registerForm.onsubmit = (event) => {
+        this.$signForm.onsubmit = (event) => {
             event.preventDefault();
-            console.log("Register form submitted");
             let isPass = (this.$name.validate((value) => {
                     return value != '';
                 }, "Invalid Name") |
