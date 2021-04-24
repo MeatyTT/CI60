@@ -3,7 +3,6 @@ $template.innerHTML = `
     <form class="sign-form">
         <h2 class="title">Sign In</h2>
         <div class="sub-title">Hãy đăng nhập tài khoản để vào trang web</div>
-        <sign-input class="name" placeholder="Your name" type="text" error=""></sign-input>
         <sign-input class="email" placeholder="Your email" type="email" error=""></sign-input>
         <sign-input class="password" placeholder="Your password" type="password" error=""></sign-input>
         <button class="sign-btn">Sign In</button>
@@ -21,12 +20,9 @@ export default class SignForm extends HTMLElement {
     connectedCallback() {
         this.$signForm.onsubmit = (event) => {
             event.preventDefault();
-            let isPass = (this.$name.validate((value) => {
+            let isPass = this.$email.validate((value) => {
                     return value != '';
-                }, "Invalid Name") |
-                this.$email.validate((value) => {
-                    return value != '';
-                }, "Invalid Email")) &
+                }, "Invalid Email") &
                 this.$password.validate((value) => {
                     return value != '';
                 }, "Invalid Password")

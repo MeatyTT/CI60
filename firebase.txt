@@ -1,0 +1,25 @@
+* Khái niệm:
+    Firebase là một dịch vụ cơ sở dữ liệu thời gian thực hoạt động trên nền tảng đám mây được cung cấp bởi Google nhằm giúp các lập trình phát triển nhanh các ứng dụng bằng cách đơn giản hóa các thao tác với cơ sở dữ liệu. Firebase chắc chắn rằng sẽ là một nền tảng rất tuyệt vời để phát triển nhanh các ứng dụng vì vậy mình quyết định viết bài viết này để chia sẻ tới các bạn về nền tảng cơ sở dữ liệu thời gian thực tuyệt vời này của Google.
+
+* Công dụng:
+    1.Firebase Develop
+
+    -Cloud Messaging là một giải pháp tin nhắn đa nền tảng đáng tin cậy miễn phí.Mỗi tin nhắn dung lượng đến 4KB trong ứng dụng client.
+    -Firebase Authentication Hầu hết các ứng dụng cần xác thực quyền. Giúp ứng dụng lưu dữ liệu an toàn sử dụng trong các đám mây.
+    -Firebase Realtime Database cơ sở dữ liệu đám mây NoSQL đồng bộ hóa. Dữ liệu được đồng bộ hóa trên tất cả các client trong thời gian thực, và luôn có sẵn khi ứng dụng offline.
+    -Firebase Storage được xây dựng cho các nhà phát triển ứng dụng, để lưu trữ và phục vụ nội dung do người dùng tạo ra, chẳng hạn như hình ảnh hoặc video.
+    -Firebase Hosting nhanh chóng và an toàn lưu trữ tĩnh cho ứng dụng web.
+   - Firebase Test Lab cung cấp các thiết bị vật lý và ảo cho phép chạy thử nghiệm mô phỏng môi trường sử dụng thực tế
+    -Firebase Crash Reporting Thông tin toàn diện và hành động để giúp chẩn đoán và sửa chữa các vấn đề trong ứng dụng.
+    
+    2.Firebase Grow
+
+    -Notifications cho phép gửi và duy trì tin nhắn của người dùng. Sử dụng là miễn phí và không giới hạn.
+    -Remote Config Cập nhật ứng dụng không cần triển khai một phiên bản mới. Cài đặt nhanh chóng dễ dàng. App Indexing Trợ giúp người dùng khám phá và tái tham gia với các ứng dụng của bạn bằng cách hiển thị có liên quan nội dung trong ứng dụng trong kết quả tìm kiếm của Google.
+    -Dynamic Links là các URL thông minh tự động thay đổi hành vi để cung cấp tốt nhất trên các nền tảng khác nhau. Liên kết động có thể tồn tại trong ứng dụng quá trình cài đặt và đưa người dùng tới nội dung có liên quan cho dù họ là một người dùng mới hoặc một khách hàng lâu năm.
+    -Invites giới thiệu ứng dụng và chia sẻ.
+    -AdWords Tự động liên kết AdWords với người dùng mà bạn xác định trong căn cứ Firebase Analytics. Cải thiện nhắm mục tiêu quảng cáo và tối ưu hóa hiệu suất chiến dịch của bạn.
+    
+    3.Earn Chắc chắn rồi kiếm tiền thông qua admod
+* Cách cài đặt
+https://www.codehub.com.vn/Huong-Dan-Cai-Dat-Firebase-SDK-tren-Android
