@@ -13,7 +13,6 @@ export default class SignForm extends HTMLElement {
         super();
         this.appendChild($template.content.cloneNode(true));
         this.$signForm = this.querySelector('.sign-form');
-        this.$name = this.querySelector('.name');
         this.$email = this.querySelector('.email');
         this.$password = this.querySelector('.password');
     }
@@ -27,6 +26,12 @@ export default class SignForm extends HTMLElement {
                     return value != '';
                 }, "Invalid Password")
         }
+        let data = {
+            email: this.$email.value,
+            password: this.$password.value,
+        }
+        if (isPass) console.log("OK");
     }
+    
 }
 window.customElements.define('sign-form', SignForm);
