@@ -5,7 +5,12 @@ export async function register(name, email, password) {
             displayName: name
         });
         alert("Create account successfully");
-        console.log(firebase.auth().currentUser);
+        // console.log(firebase.auth().currentUser);
+
+        await firebase.firestore().collection("users").doc("đây là 1 id nào đấy").set({
+            status: 'free',
+            currentConversationId: ''
+        });
     } catch (error) {
         alert(error.message);
     }

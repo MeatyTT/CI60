@@ -22,7 +22,7 @@ async function getDocsByCondition() {
     let respone = await firebase.firestore().collection("users").where("age",">=",25).get();
     console.log(getDataFromDocs(respone.docs));
 }
-getDocsByCondition();
+// getDocsByCondition();
 
 //update.delete,onSnapShot
 
