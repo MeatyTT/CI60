@@ -1,0 +1,20 @@
+.user-action .btn{
+    width: 100%;
+    height: 30px;
+    background-color: #4888f4;
+    border: 1px solid #4888f4;
+    color: #ffffff;
+    margin: 5px 0px;
+}
+.user-action .btn-bite{
+    background-color: #1aa15f;
+    border-color: #1aa15f;
+}
+.user-action .btn-stop-flirting{
+    background-color: #ffcd42;
+    border-color: #ffcd42;
+}
+.user-action .btn-end-chat{
+    background-color: #dd5145;
+    border-color: #dd5145;
+}

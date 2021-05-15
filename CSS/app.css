@@ -2,10 +2,12 @@
 @import url(./RegisterForm.css);
 @import url(./SignIn/SignForm.css);
 @import url(./SignIn/SignInput.css);
+@import url(./AppStart.css);
+@import url(./UserActions.css);
 *{
     font-family: 'PT Sans', sans-serif;
 }
-#app{
+/* #app{
     display: flex;
     justify-content: center;
-}
+} */

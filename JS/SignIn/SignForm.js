@@ -1,3 +1,5 @@
+import { login } from "../models/user.js";
+
 const $template = document.createElement('template');
 $template.innerHTML = `
     <form class="sign-form">
@@ -20,18 +22,20 @@ export default class SignForm extends HTMLElement {
         this.$signForm.onsubmit = (event) => {
             event.preventDefault();
             let isPass = this.$email.validate((value) => {
-                    return value != '';
-                }, "Invalid Email") &
+                return value != '';
+            }, "Invalid Email") &
                 this.$password.validate((value) => {
                     return value != '';
                 }, "Invalid Password")
+            let data = {
+                email: this.$email.value,
+                password: this.$password.value,
+            }
+            if (isPass) {
+                login(data.email, data.password);
+            }
         }
-        let data = {
-            email: this.$email.value,
-            password: this.$password.value,
-        }
-        if (isPass) console.log("OK");
     }
-    
+
 }
 window.customElements.define('sign-form', SignForm);

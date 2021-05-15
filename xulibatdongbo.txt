@@ -1,0 +1,8 @@
+code từ bất đồng bộ sang đồng bộ
+{
+    setTimeout
+    setInterval
+    lấy dữ liệu từ bên ngoài 
+    API
+}
+dung async/await
