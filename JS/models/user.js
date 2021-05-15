@@ -1,3 +1,5 @@
+import { getDataFromDocs } from "../utils.js";
+
 export async function register(name, email, password) {
     try {
         await firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -7,7 +9,8 @@ export async function register(name, email, password) {
         alert("Create account successfully");
         // console.log(firebase.auth().currentUser);
 
-        await firebase.firestore().collection("users").doc("đây là 1 id nào đấy").set({
+        let currentUser = firebase.auth().currentUser;
+        await firebase.firestore().collection("users").doc(currentUser.uid).set({
             status: 'free',
             currentConversationId: ''
         });
@@ -35,4 +38,24 @@ export function authStateChanged() {
             console.log("User logged out");
         }
     })
+}
+
+export async function listenAllUsers(callback) {
+    // let response= await firebase.firestore().collection("users").get();
+    // //respone.docs: mang, Lưu tất cả thông tin người dùng
+    // let usersData = await getDataFromDocs(response.docs);
+    // callback(usersData);
+
+
+    //onSnapshot
+    firebase.firestore().collection("users").onSnapshot((response)=>{
+        let usersData = getDataFromDocs(response.docs);
+        console.log(usersData);
+        callback(usersData)
+    });
+}
+
+export async function updateCurrentUser(data){
+    let currentUser = firebase.auth().currentUser;
+    await firebase.firestore().collection("users").doc(currentUser.uid).update(data);
 }
