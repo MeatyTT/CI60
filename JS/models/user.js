@@ -50,7 +50,7 @@ export async function listenAllUsers(callback) {
     //onSnapshot
     firebase.firestore().collection("users").onSnapshot((response)=>{
         let usersData = getDataFromDocs(response.docs);
-        console.log(usersData);
+        // console.log(usersData);
         callback(usersData)
     });
 }
