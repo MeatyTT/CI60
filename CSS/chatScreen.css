@@ -1,0 +1,10 @@
+.chat-screen{
+    display: flex;
+}
+.chat-screen .aside-left{
+    width: 25%;
+}
+.chat-screen .chat-container{
+    width: 75%;
+    padding: 10px;
+}

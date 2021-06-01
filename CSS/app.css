@@ -4,10 +4,12 @@
 @import url(./SignIn/SignInput.css);
 @import url(./AppStart.css);
 @import url(./UserActions.css);
+@import url(./chatScreen.css);
+@import url(./messageContainer.css);
 *{
     font-family: 'PT Sans', sans-serif;
 }
-/* #app{
+.auth-screen{
     display: flex;
     justify-content: center;
-} */
+}

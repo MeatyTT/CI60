@@ -1,0 +1,13 @@
+.massage-container{
+    margin: 3px 0px;
+}
+.message-content{
+    display: inline-block;
+    background-color: #4b8bf4;
+    padding: 3px 5px;
+    border-radius: 6px;
+    color: #ffffff;
+}
+.message-container.owned{
+    text-align: right;
+}

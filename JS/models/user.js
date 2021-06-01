@@ -1,4 +1,4 @@
-import { getDataFromDocs } from "../utils.js";
+import { getDataFromDocs, getDataFromDoc } from "../utils.js";
 
 export async function register(name, email, password) {
     try {
@@ -33,9 +33,9 @@ export function authStateChanged() {
     //dangwd ký, đăng nhập, đăng xuất
     firebase.auth().onAuthStateChanged(function (user) {
         if (user != null) {
-            console.log(user);
+            document.getElementById('app').innerHTML = '<chat-screen></chat-screen>';
         } else {
-            console.log("User logged out");
+            document.getElementById('app').innerHTML = '<auth-screen></auth-screen>';
         }
     })
 }
@@ -48,14 +48,23 @@ export async function listenAllUsers(callback) {
 
 
     //onSnapshot
-    firebase.firestore().collection("users").onSnapshot((response)=>{
+    firebase.firestore().collection("users").onSnapshot((response) => {
         let usersData = getDataFromDocs(response.docs);
         // console.log(usersData);
         callback(usersData)
     });
 }
 
-export async function updateCurrentUser(data){
+export async function updateCurrentUser(data) {
     let currentUser = firebase.auth().currentUser;
     await firebase.firestore().collection("users").doc(currentUser.uid).update(data);
+}
+
+export function listenCurrentUser(callback) {
+    let currentUser = firebase.auth().currentUser;
+    firebase.firestore().collection('users').doc(currentUser.uid).onSnapshot((response) => {
+        console.log(response);
+        let data = getDataFromDoc(response);
+        callback(data);
+    });
 }
