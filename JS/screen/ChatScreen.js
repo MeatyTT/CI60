@@ -13,22 +13,26 @@ $template.innerHTML = `
     </div>
 `;
 let fakeMessage = [
-    {content:"Hello",userId:"id người gửi 1",dateModified:"2021/06/01"},
-    {content:"Hi",userId:"id người gửi 2",dateModified:"2021/06/01"},
-    {content:"How are you?",userId:"id người gửi 1",dateModified:"2021/06/01"},
-    {content:"Quà 1/6 đâu",userId:"id người gửi 2",dateModified:"2021/06/01"},
+    { content: "Hello", userId: "id người gửi 1", dateModified: "2021/06/01" },
+    { content: "Hi", userId: "id người gửi 2", dateModified: "2021/06/01" },
+    { content: "How are you?", userId: "id người gửi 1", dateModified: "2021/06/01" },
+    { content: "Quà 1/6 đâu", userId: "id người gửi 2", dateModified: "2021/06/01" },
 ];
 export default class ChatScreen extends HTMLElement {
     constructor() {
         super();
         this.appendChild($template.content.cloneNode(true));
 
-        this.$userActions= this.querySelector('user-action')
+        this.$userActions = this.querySelector('user-action')
+        this.$messageList = this.querySelector('message-list');
     }
     connectedCallback() {
         listenCurrentUser((data) => {
-            this.$userActions.setAttribute('status',data.status);
+            // console.log(data);
+            this.$userActions.setAttribute('status', data.status);
         });
+        this.$messageList.setAttribute('messages',JSON.stringify(fakeMessage));
+        //JSON: string, có quy tắc -- phân tích --> 1 mảng // 1 object
     }
 }
 

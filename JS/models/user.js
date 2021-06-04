@@ -68,3 +68,11 @@ export function listenCurrentUser(callback) {
         callback(data);
     });
 }
+
+export async function getFlirtingUsers() {
+    let response = await firebase.firestore().collection('users').where('status','==','flirting').get();
+    return getDataFromDocs(response.docs);
+}
+export async function updateUser(id , data){
+    await firebase.firestore().collection('users').doc(id).update(data)
+}

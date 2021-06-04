@@ -1,5 +1,7 @@
 export function getDataFromDoc(doc) {
-    return doc.data();
+    let data =doc.data();
+    data.id = doc.id;
+    return data;
 }
 /**
  * 
