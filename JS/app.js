@@ -6,6 +6,7 @@ import AppStart from "./component/AppStart.js";
 import UserAction from "./component/UserActions.js"
 import MessageContainer from "./component/MessageContainer.js";
 import MessageList from "./component/MessageList.js";
+import SendMessageForm from "./component/SendMessageForm.js";
 
 import AuthScreen from "./screen/AuthScreen.js";
 import ChatScreen from "./screen/ChatScreen.js";

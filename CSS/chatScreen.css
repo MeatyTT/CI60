@@ -3,8 +3,15 @@
 }
 .chat-screen .aside-left{
     width: 25%;
+    padding: 0px 15px;
 }
 .chat-screen .chat-container{
     width: 75%;
-    padding: 10px;
+    height: 100vh;
+}
+
+.chat-screen .chat-container message-list{
+    display: block;
+    height: calc(100% - 70px);
+    margin-bottom: 20px;
 }

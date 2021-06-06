@@ -6,8 +6,13 @@
 @import url(./UserActions.css);
 @import url(./chatScreen.css);
 @import url(./messageContainer.css);
+@import url(./send-message-form.css);
+@import url(./message-list.css);
+
 *{
     font-family: 'PT Sans', sans-serif;
+    padding: 0;
+    margin: 0;
 }
 .auth-screen{
     display: flex;

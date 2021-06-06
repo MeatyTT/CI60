@@ -15,6 +15,9 @@ $template.innerHTML = `
         <div class="status-chatting">
             <button class="btn btn-end-chat">End conversation</button>
         </div>
+        <div class="sign-out">
+            <button class="btn btn-sign-out">Sign out</button>
+        </div>
     </div>
 `;
 
@@ -31,6 +34,7 @@ export default class UserAction extends HTMLElement {
         this.$biteBtn = this.querySelector(".btn-bite");
         this.$stopFlirtBtn = this.querySelector(".btn-stop-flirting");
         this.$endBtn = this.querySelector(".btn-end-chat");
+        this.$signOut = this.querySelector(".btn-sign-out");
     }
 
     connectedCallback() {
@@ -50,18 +54,24 @@ export default class UserAction extends HTMLElement {
             let index = Math.floor(Math.random() * flirtingUsers.length);
             let randomUser = flirtingUsers[index];
             let currentUser = firebase.auth().currentUser;
+
+            this.partnerId = randomUser.id;
             //->tạo 1 conversation
             let conversation = await createConversation([randomUser.id, currentUser.uid]);
             //updateCurrentUser vaf update user flirting để ghép đoi
 
-            updateCurrentUser({ status: 'chatting', currentConversationId: 'id của conversation nào đó' });
-            updateUser(randomUser.id,{status:'chatting',currentConversationId:conversation.id});
+            updateCurrentUser({ status: 'chatting', currentConversationId: conversation.id });
+            updateUser(randomUser.id, { status: 'chatting', currentConversationId: conversation.id });
         }
         this.$stopFlirtBtn.onclick = () => {
             updateCurrentUser({ status: 'free' });
         }
         this.$endBtn.onclick = () => {
             updateCurrentUser({ status: 'free', currentConversationId: '' });
+            updateUser(this.partnerId, { status: 'free', currentConversationId: '' });
+        }
+        this.$signOut.onclick = () => {
+            firebase.auth().signOut();
         }
     }
     static get observedAttributes() {

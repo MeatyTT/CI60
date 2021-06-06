@@ -1,5 +1,5 @@
 import { listenCurrentUser } from "../models/user.js";
-
+import { listenConversation } from "../models/conversation.js";
 const $template = document.createElement('template');
 $template.innerHTML = `
     <div class="chat-screen">
@@ -9,6 +9,7 @@ $template.innerHTML = `
         </div>
         <div class="chat-container">
             <message-list></message-list>
+            <send-message-form></send-message-form>
         </div>
     </div>
 `;
@@ -23,14 +24,27 @@ export default class ChatScreen extends HTMLElement {
         super();
         this.appendChild($template.content.cloneNode(true));
 
-        this.$userActions = this.querySelector('user-action')
+        this.$userActions = this.querySelector('user-action');
         this.$messageList = this.querySelector('message-list');
+        this.$sendMessageForm = this.querySelector('send-message-form');
     }
     connectedCallback() {
         listenCurrentUser((data) => {
-            // console.log(data);
+            console.log(data);
             this.$userActions.setAttribute('status', data.status);
+            this.$sendMessageForm.setAttribute('conversation-id',data.currentConversationId);
+
+            if(data.status == 'chatting'){
+                listenConversation(data.currentConversationId,(data)=>{
+                    this.$messageList.setAttribute('messages',JSON.stringify(data.messages));
+                });
+            }else if(data.status == "free"){
+                this.$messageList.setAttribute('messages','[]')
+            }
         });
+
+        // listenConversation(); // ko lấy đc id
+
         this.$messageList.setAttribute('messages',JSON.stringify(fakeMessage));
         //JSON: string, có quy tắc -- phân tích --> 1 mảng // 1 object
     }

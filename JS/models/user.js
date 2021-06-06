@@ -42,7 +42,7 @@ export function authStateChanged() {
 
 export async function listenAllUsers(callback) {
     // let response= await firebase.firestore().collection("users").get();
-    // //respone.docs: mang, Lưu tất cả thông tin người dùng
+    // //response.docs: mang, Lưu tất cả thông tin người dùng
     // let usersData = await getDataFromDocs(response.docs);
     // callback(usersData);
 
